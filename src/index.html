@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>To-do-list</title>
+	</head>
+	<body>
+		<div id="content">
+			<header>
+				<h1>To Do List</h1>
+			</header>
+			<div id="sidebar"></div>
+			<div id="contentBody">
+				<dialog>
+					<form id="toDoForm">
+						<label for="title">Title</label>
+						<input type="text" id="title" name="title" />
+						<label for="description">Description</label>
+						<input
+							type="text"
+							id="description"
+							name="description"
+						/>
+						<label for="dueDate">Due date</label>
+						<input type="date" id="dueDate" name="dueDate" />
+						<label for="priority">Priority</label>
+						<input
+							type="checkbox"
+							id="priority"
+							name="priority"
+						/><br />
+						<label for="notes">Notes</label>
+						<textarea name="notes" id="notes"></textarea>
+						<div>
+							<input type="submit" value="Submit" />
+							<button autofocus>Close</button>
+						</div>
+					</form>
+				</dialog>
+				<div id="addNewItem">
+					<button>Add new task</button>
+				</div>
+				<div id="toDoList"></div>
+			</div>
+		</div>
+	</body>
+</html>
