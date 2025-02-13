@@ -3,52 +3,38 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<title>To-do-list</title>
+		<title>Document</title>
 	</head>
 	<body>
-		<div id="content">
+		<div class="sidebar">
 			<header>
-				<h1>To Do List</h1>
+				<h2>Projects</h2>
 			</header>
-			<div id="sidebar"></div>
-			<div id="contentBody">
-				<dialog>
-					<form id="toDoForm">
-						<label for="title">Title</label>
-						<input type="text" id="title" name="title" />
-						<label for="description">Description</label>
-						<input
-							type="text"
-							id="description"
-							name="description"
-						/>
-						<label for="dueDate">Due date</label>
-						<input type="date" id="dueDate" name="dueDate" />
-						<label for="priority">Priority</label>
-						<input
-							type="checkbox"
-							id="priority"
-							name="priority"
-						/><br />
-						<label for="notes">Notes</label>
-						<textarea name="notes" id="notes"></textarea>
-						<div>
-							<input type="submit" value="Submit" />
-							<button autofocus>Close</button>
-						</div>
-					</form>
-				</dialog>
-				<div id="addNewItem">
-					<button>Add new task</button>
+			<div class="addProjects">
+				<button>Add new Projects</button>
+				<div>
+					<input type="text" name="projectInput" id="projectInput" />
+					<button>Create Project</button>
 				</div>
-				<div id="toDoList"></div>
 			</div>
+			<div class="displayProjects"></div>
+		</div>
+		<div class="content">
+			<!-- <dialog> -->
+                <label for="title">Title:</label>
+				<input type="text" name="title" id="title" />
+                <label for="description">Description:</label>
+				<input type="text" name="description" id="description" />
+                <label for="dueDate">Due Date:</label>
+				<input type="date" name="dueDate" id="dueDate" />
+                <label for="priority">Priority:</label>
+				<select name="priority" id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+				<button>Add Task</button>
+			<!-- </dialog> -->
 		</div>
 	</body>
 </html>

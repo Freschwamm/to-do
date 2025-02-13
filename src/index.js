@@ -1,4 +1,7 @@
-import domHandler from "./dom-handler";
-import './styles.css'
+import projectView from './projects/projects-view';
 
-domHandler();
+projectView();
+
+// import projectController from './projects/project-controller';
+
+// projectController();
