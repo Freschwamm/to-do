@@ -1,7 +1,7 @@
-import projectView from './projects/projects-view';
+// import projectView from './projects/projects-view';
 
-projectView();
+// projectView();
 
-// import projectController from './projects/project-controller';
+import projectController from './projects/project-controller';
 
-// projectController();
+projectController();

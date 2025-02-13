@@ -1,46 +1,42 @@
-import projectsModel from './projects-model';
+import projectsModel from './projects-model.js';
 import projectView from './projects-view.js';
 
 export default function projectController() {
-	let currentProjectId = 0;
-	//this instantiates a with data storage in the controller as we don't need multiple
-	const projectStorage = projectsModel();
-    const view = projectView() 
-    view.renderProjects(getProjectList())
-    // const view = projectView();
+    let currentProjectId = 0;
+    const projectStorage = projectsModel();
+    const view = projectView();
 
-	// function to createNew project can be passed to view
-	const createNewProject = (project) => {
-		const newProject = {
-			title: project?.value?.toLowerCase() || project.title,
-		};
-		projectStorage.createProject(newProject);
-	};
-	// fucntion to get projects can be passed to view
-	const getProjectList = () => projectStorage.getProjects();
+    // Create a new project and update the view
+    const createNewProject = (project) => {
+        const newProject = {
+            title: project?.value?.toLowerCase() || project.title,
+        };
+        projectStorage.createProject(newProject);
+        view.renderProjects(getProjectList(), setCurrentProject, deleteProject);
+    };
 
-	const deleteProject = (projectElement) => {
-		const projectIndex = projectElement.dataset.id;
-		projectStorage.deleteProject(projectIndex);
-	};
+    // Get the list of projects
+    const getProjectList = () => projectStorage.getProjects();
 
-	const setCurrentProject = (projectId) => {
-		currentProjectId = projectId;
-	};
+    // Delete a project and update the view
+    const deleteProject = (projectElement) => {
+        const projectIndex = projectElement.dataset.id;
+        projectStorage.deleteProject(projectIndex);
+        view.renderProjects(getProjectList(), setCurrentProject, deleteProject);
+    };
 
-	const getCurrentProject = () => {
-		return currentProjectId;
-	};
+    // Set the current project
+    const setCurrentProject = (projectId) => {
+        currentProjectId = projectId;
+    };
 
-	if (!getProjectList().length) {
-		createNewProject({ title: 'default' });
-	}
+    // Get the current project ID
+    const getCurrentProject = () => currentProjectId;
 
-	return {
-		createNewProject,
-		getProjectList,
-		deleteProject,
-		setCurrentProject,
-		getCurrentProject,
-	};
+    // Ensure there is at least one default project
+    if (!getProjectList().length) {
+        createNewProject({ title: 'default' });
+    }
+
+    view.initialize(getProjectList(), createNewProject, setCurrentProject, deleteProject);
 }
